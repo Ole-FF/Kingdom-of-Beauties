@@ -114,9 +114,9 @@ function App() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-emerald-50 to-sky-50">
         <div className="container mx-auto text-center max-w-4xl">
-          <h1 className="text-5xl md:text-6xl font-bold text-emerald-800 mb-6 leading-tight">
+          <h2 className="text-5xl md:text-6xl font-bold text-emerald-800 mb-6 leading-tight">
             Connect With Beautiful Girls From Around The World And <span className="text-emerald-600">Ready To Be Your Girlfriend</span>
-          </h1>
+          </h2>
           <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed">
             Welcome to the Kingdom of Beauties. We have thousands of rare and beautiful girls from around the world. 
             You can find the perfect girl in Kingdom of Beauties ready for dating through our network. Y
