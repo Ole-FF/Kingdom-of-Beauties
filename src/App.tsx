@@ -1,5 +1,14 @@
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import React from 'react';
+import ScarlettImg from './pixies/Scarlett.jpg';
+import LarnaImg from './pixies/Larna.jpg';
+import SavanahImg from './pixies/Savanah.jpg';
+import QuezalImg from './pixies/Quezal.jpg';
+import VictoriaImg from './pixies/Victoria.jpg';
+import SelenaImg from './pixies/Selena.jpg';
+import RoxanneImg from './pixies/Roxanne.jpg';
+import LorikImg from './pixies/Lorik.jpg';
+import CarmenImg from './pixies/Carmen.jpg';
 // PortalButton Component
 interface PortalButtonProps {
   url: string;
@@ -29,17 +38,13 @@ PortalButton.defaultProps = {
 };
 
 // ProfileCard Component
+// ProfileCard Component
 const ProfileCard = ({ id, name, image, category }) => {
-  // Clean up the image path if needed
-  const imagePath = image.startsWith('pixies/') 
-    ? image 
-    : `pixies/${image}`;
-  
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-105">
       <div className="h-64 overflow-hidden">
-        <img 
-          src={imagePath}
+        <img
+          src={image}
           alt={`${name}'s profile`}
           className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"
         />
@@ -49,7 +54,7 @@ const ProfileCard = ({ id, name, image, category }) => {
           <h3 className="text-xl font-bold text-gray-800">{name}</h3>
           <span className="text-sm bg-emerald-100 text-emerald-800 py-1 px-3 rounded-full">{category}</span>
         </div>
-        <PortalButton 
+        <PortalButton
           url="https://t.slext2.com/365625/7272?bo=2753,2754,2755,2756&popUnder=true&aff_sub5=SF_006OG000004lmDN"
           label={`Connect With ${name}`}
         />
@@ -64,55 +69,55 @@ function App() {
     {
       id: 1,
       name: "Scarlett",
-      image: "pixies/Scarlett.jpg",
+      image: ScarlettImg,
       category: "Cam Models"
     },
     {
       id: 2,
       name: "Larna",
-      image: "pixies/Larna.jpg",
+      image: LarnaImg,
       category: "Single Moms"
     },
     {
       id: 3,
       name: "Savanah",
-      image: "pixies/Savanah.jpg",
+      image: SavanahImg,
       category: "Teens"
     },
     {
       id: 4,
       name: "Quezal",
-      image: "pixies/Quezal.jpg",
+      image: QuezalImg,
       category: "Cougars"
     },
     {
       id: 5,
       name: "Victoria",
-      image: "pixies/Victoria.jpg",
+      image: VictoriaImg,
       category: "Cam Models"
     },
     {
       id: 6,
       name: "Selena",
-      image: "pixies/Selena.jpg",
+      image: SelenaImg,
       category: "Single Moms"
     },
     {
       id: 7,
       name: "Roxanne",
-      image: "pixies/Roxanne.jpg",
+      image: RoxanneImg,
       category: "Cam Models"
     },
     {
       id: 8,
       name: "Lorik",
-      image: "pixies/Lorik.jpg",
+      image: LorikImg,
       category: "Single Moms"
     },
     {
       id: 9,
       name: "Carmen",
-      image: "pixies/Carmen.jpg",
+      image: CarmenImg,
       category: "Escorts"
     }
   ];
