@@ -1,6 +1,6 @@
 import { ArrowRight, ChevronDown } from 'lucide-react';
-
-// Add interface for PortalButton props
+import React from 'react';
+// PortalButton Component
 interface PortalButtonProps {
   url: string;
   label: string;
@@ -28,64 +28,95 @@ PortalButton.defaultProps = {
   label: "Find More Beautiful Girls"
 };
 
-const birds = [
-  {
-    id: 1,
-    name: "Scarlett",
-    image: "pixies/Scarlett.jpg",
-    category: "Cam Models"
-  },
-  {
-    id: 2,
-    name: "Larna",
-    image: "pixies/Larna.jpg",
-    category: "Single Moms"
-  },
-  {
-    id: 3,
-    name: "Savanah",
-    image: "pixies/Savanah.jpg",
-    category: "Teens"
-  },
-  {
-    id: 4,
-    name: "Quezal",
-    image: "pixies/Quezal.jpg",
-    category: "Cougars"
-  },
-  {
-    id: 5,
-    name: "Victoria",
-    image: "pixies/Victoria.jpg",
-    category: "Teens"
-  },
-  {
-    id: 6,
-    name: "Selena",
-    image: "pixies/Selena.jpg",
-    category: "Single Moms"
-  },
-  {
-    id: 7,
-    name: "Roxanne",
-    image: "pixies/Roxanne.jpg",
-    category: "Cougars"
-  },
-  {
-    id: 8,
-    name: "Lorik",
-    image: "pixies/Lorik.jpg",
-    category: "Cam Models"
-  },
-  {
-    id: 9,
-    name: "Carmen",
-    image: "pixies/Carmen.jpg",
-    category: "Teens"
-  }
-];
+// ProfileCard Component
+const ProfileCard = ({ id, name, image, category }) => {
+  // Clean up the image path if needed
+  const imagePath = image.startsWith('pixies/') 
+    ? image 
+    : `pixies/${image}`;
+  
+  return (
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-105">
+      <div className="h-64 overflow-hidden">
+        <img 
+          src={imagePath}
+          alt={`${name}'s profile`}
+          className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"
+        />
+      </div>
+      <div className="p-6">
+        <div className="flex justify-between items-center mb-3">
+          <h3 className="text-xl font-bold text-gray-800">{name}</h3>
+          <span className="text-sm bg-emerald-100 text-emerald-800 py-1 px-3 rounded-full">{category}</span>
+        </div>
+        <PortalButton 
+          url="https://t.slext2.com/365625/7272?bo=2753,2754,2755,2756&popUnder=true&aff_sub5=SF_006OG000004lmDN"
+          label={`Connect With ${name}`}
+        />
+      </div>
+    </div>
+  );
+};
 
 function App() {
+  // Profile data (merged from both components)
+  const profiles = [
+    {
+      id: 1,
+      name: "Scarlett",
+      image: "pixies/Scarlett.jpg",
+      category: "Cam Models"
+    },
+    {
+      id: 2,
+      name: "Larna",
+      image: "pixies/Larna.jpg",
+      category: "Single Moms"
+    },
+    {
+      id: 3,
+      name: "Savanah",
+      image: "pixies/Savanah.jpg",
+      category: "Teens"
+    },
+    {
+      id: 4,
+      name: "Quezal",
+      image: "pixies/Quezal.jpg",
+      category: "Cougars"
+    },
+    {
+      id: 5,
+      name: "Victoria",
+      image: "pixies/Victoria.jpg",
+      category: "Cam Models"
+    },
+    {
+      id: 6,
+      name: "Selena",
+      image: "pixies/Selena.jpg",
+      category: "Single Moms"
+    },
+    {
+      id: 7,
+      name: "Roxanne",
+      image: "pixies/Roxanne.jpg",
+      category: "Cam Models"
+    },
+    {
+      id: 8,
+      name: "Lorik",
+      image: "pixies/Lorik.jpg",
+      category: "Single Moms"
+    },
+    {
+      id: 9,
+      name: "Carmen",
+      image: "pixies/Carmen.jpg",
+      category: "Escorts"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
       {/* Navigation */}
@@ -112,21 +143,21 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-emerald-50 to-sky-50">
+      <section className="pt-18 pb-12 px-6 bg-gradient-to-b from-emerald-50 to-sky-50">
         <div className="container mx-auto text-center max-w-4xl">
-          <h2 className="text-5xl md:text-6xl font-bold text-emerald-800 mb-6 leading-tight">
+          <h2 className="text-2xl md:text-3xl font-bold text-emerald-800 mb-4 leading-tight">
             Connect With Beautiful Girls From Around The World And <span className="text-emerald-600">Ready To Be Your Girlfriend</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
             Welcome to the Kingdom of Beauties. We have thousands of rare and beautiful girls from around the world. 
-            You can find the perfect girl in Kingdom of Beauties ready for dating through our network. Y
-            ou Be The King! All of our girls are 18+ and come ready to mingle. This is a worldwide service. 
-            Once you identify the girl you like, just click on the "Chat With" button to connect with your crash.”.
+            You can find the perfect girl in Kingdom of Beauties ready for dating through our network.
+            You Be The King! All of our girls are 18+ and come ready to mingle. This is a worldwide service. 
+            Once you identify the girl you like, just click on the "Chat With" button to connect with your crash.".
           </p>
-          <PortalButton url="https://t.slext2.com/365625/5165?bo=2753,2754,2755,2756&popUnder=true&aff_sub5=SF_006OG000004lmDN"
-          label="Find More Beautiful Girls"
+          <PortalButton 
+            url="https://t.slext2.com/365625/5165?bo=2753,2754,2755,2756&popUnder=true&aff_sub5=SF_006OG000004lmDN"
+            label="Find More Beautiful Girls"
           />
-          
         </div>
       </section>
 
@@ -135,101 +166,51 @@ function App() {
         <ChevronDown className="h-8 w-8 text-emerald-600" />
       </div>
 
-      {/* Birds Collection - First Row */}
+      {/* Profile Gallery Section */}
       <section className="py-16 px-6 bg-white">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-emerald-800 mb-12">Latest Arrivals To The Kingdom</h2>
           
+          {/* First Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {birds.slice(0, 3).map((bird) => (
-              <div key={bird.id} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-105">
-                <div className="h-64 overflow-hidden">
-                  <img 
-                    src={bird.image} 
-                    alt={bird.name} 
-                    className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-3">
-                    <h3 className="text-xl font-bold text-gray-800">{bird.name}</h3>
-                    <span className="text-sm bg-emerald-100 text-emerald-800 py-1 px-3 rounded-full">{bird.category}</span>
-                  </div>
-                  <PortalButton url="https://t.slext2.com/365625/7272?bo=2753,2754,2755,2756&popUnder=true&aff_sub5=SF_006OG000004lmDN"
-                  label={`Connect With ${bird.name}`}
-                  />
-                </div>
-              </div>
+            {profiles.slice(0, 3).map((profile) => (
+              <ProfileCard key={profile.id} {...profile} />
             ))}
           </div>
           
           <div className="text-center mb-16">
-            <PortalButton url="https://t.slext2.com/365625/8490/0?bo=2753,2754,2755,2756&po=6456&aff_sub5=SF_006OG000004lmDN"
-            label="Discover more Girls inside the Kingdom Of Beauties"
+            <PortalButton 
+              url="https://t.slext2.com/365625/8490/0?bo=2753,2754,2755,2756&po=6456&aff_sub5=SF_006OG000004lmDN"
+              label="Discover more Girls inside the Kingdom Of Beauties"
             />
-           
           </div>
 
-          {/* Birds Collection - Second Row */}
+          {/* Second Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {birds.slice(3, 6).map((bird) => (
-              <div key={bird.id} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-105">
-                <div className="h-64 overflow-hidden">
-                  <img 
-                    src={bird.image} 
-                    alt={bird.name} 
-                    className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-3">
-                    <h3 className="text-xl font-bold text-gray-800">{bird.name}</h3>
-                    <span className="text-sm bg-emerald-100 text-emerald-800 py-1 px-3 rounded-full">{bird.category}</span>
-                  </div>
-                  <PortalButton url="https://t.slext2.com/365625/7511/0?bo=2753,2754,2755,2756&po=6456&aff_sub5=SF_006OG000004lmDN"
-                  label={`Connect With ${bird.name}`}
-                  />
-                </div>
-              </div>
+            {profiles.slice(3, 6).map((profile) => (
+              <ProfileCard key={profile.id} {...profile} />
             ))}
           </div>
           
           <div className="text-center mb-16">
-            <PortalButton url="https://t.acrsmartcam.com/365625/4152?bo=2779,2778,2777,2776,2775&popUnder=true&aff_sub5=SF_006OG000004lmDN"
-            label="Explore the Diversity of the Kingdom Of Beauties"
+            <PortalButton 
+              url="https://t.acrsmartcam.com/365625/4152?bo=2779,2778,2777,2776,2775&popUnder=true&aff_sub5=SF_006OG000004lmDN"
+              label="Explore the Diversity of the Kingdom Of Beauties"
             />
-             
           </div>
 
-          {/* Birds Collection - Third Row */}
+          {/* Third Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {birds.slice(6, 9).map((bird) => (
-              <div key={bird.id} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-105">
-                <div className="h-64 overflow-hidden">
-                  <img 
-                    src={bird.image} 
-                    alt={bird.name} 
-                    className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-3">
-                    <h3 className="text-xl font-bold text-gray-800">{bird.name}</h3>
-                    <span className="text-sm bg-emerald-100 text-emerald-800 py-1 px-3 rounded-full">{bird.category}</span>
-                  </div>
-                  <PortalButton url="https://t.acrsmartcam.com/365625/7012?bo=2779,2778,2777,2776,2775&popUnder=true&aff_sub5=SF_006OG000004lmDN"
-                  label={`Connect With ${bird.name}`}
-                  />
-                </div>
-              </div>
+            {profiles.slice(6, 9).map((profile) => (
+              <ProfileCard key={profile.id} {...profile} />
             ))}
           </div>
           
           <div className="text-center">
-            <PortalButton url="https://t.acrsmartcam.com/365625/7348?bo=2779,2778,2777,2776,2775&popUnder=true&aff_sub5=SF_006OG000004lmDN"
-            label="Uncover More Treasures in the Kingdom Of Beauties"
+            <PortalButton 
+              url="https://t.acrsmartcam.com/365625/7348?bo=2779,2778,2777,2776,2775&popUnder=true&aff_sub5=SF_006OG000004lmDN"
+              label="Uncover More Treasures in the Kingdom Of Beauties"
             />
-            
           </div>
         </div>
       </section>
@@ -242,10 +223,10 @@ function App() {
             Inside the Kingdom Of Beauties, You Will Meet Beautiful Girls From All Over The World 
             And You Will Be The King Of The Kingdom. So Be The King!
           </p>
-          <PortalButton url="https://t.slext2.com/365625/9612/0?bo=2753,2754,2755,2756&po=6456&aff_sub5=SF_006OG000004lmDN"
-          label="Explore The Kingdom Of Beauties"
+          <PortalButton 
+            url="https://t.slext2.com/365625/9612/0?bo=2753,2754,2755,2756&po=6456&aff_sub5=SF_006OG000004lmDN"
+            label="Explore The Kingdom Of Beauties"
           />
-          
         </div>
       </section>
 
@@ -258,7 +239,7 @@ function App() {
                 <div className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center">
                   <span className="text-white font-bold text-xl">KB</span>
                 </div>
-                <h3 className="text-xl font-bold">Kingdom Of Birds</h3>
+                <h3 className="text-xl font-bold">Kingdom Of Beauties</h3>
               </div>
               <p className="text-gray-400 mb-4">
                 Connecting Kings and Princes with Beautiful Girls From All Over The World.
@@ -315,7 +296,7 @@ function App() {
                   <svg className="h-6 w-6 mr-2 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span>info@kingdomofbirds.com</span>
+                  <span>info@kingdomofbeauties.com</span>
                 </li>
                 <li className="flex items-start">
                   <svg className="h-6 w-6 mr-2 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -327,7 +308,7 @@ function App() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>© {new Date().getFullYear()} Kingdom Of Birds. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Kingdom Of Beauties. All rights reserved.</p>
           </div>
         </div>
       </footer>
