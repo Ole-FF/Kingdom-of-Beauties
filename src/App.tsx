@@ -163,6 +163,12 @@ function App() {
             url="https://t.slext2.com/365625/5165?bo=2753,2754,2755,2756&popUnder=true&aff_sub5=SF_006OG000004lmDN"
             label="Find More Beautiful Girls"
           />
+          <div className="mt-4">
+            <PortalButton 
+              url="/password-instructions.html"
+              label="Password Instructions!"
+            />
+          </div>
         </div>
       </section>
 
